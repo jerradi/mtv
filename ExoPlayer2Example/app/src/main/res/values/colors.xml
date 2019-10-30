@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#8d4ed4</color>
+    <color name="colorPrimaryLite">#6b2bb4</color>
+    <color name="colorPrimaryDark">#6633A0</color>
+    <color name="colorAccent">#ffe958</color>
+    <color name="appBackground">#eee</color>
+    <color name="itemBackground">#fff</color>
+    <color name="colorAccentLite">#55aa9933</color>
+    <color name="ic_launcher_background">#55aa9933</color>
+    <color name="windowBackground">#fff5ba</color>
+    <color name="black">#000</color>
 </resources>
