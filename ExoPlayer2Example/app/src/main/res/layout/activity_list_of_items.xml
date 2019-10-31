@@ -12,11 +12,20 @@
 
 
 
-
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription=""
+        app:srcCompat="@drawable/back" />
 
     <android.support.design.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -26,9 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="top|center"
-            android:background="@color/appBackground"
             android:divider="@android:color/transparent"
-            android:dividerHeight="10.0sp"
+            android:dividerHeight="100dp"
             android:gravity="top|center"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:scrollbars="vertical"
@@ -43,12 +51,14 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/s_tab"
                 android:minHeight="?attr/actionBarSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+                app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:titleTextColor="@color/s_subtext"/>
 
         </android.support.design.widget.AppBarLayout>
     </android.support.design.widget.CoordinatorLayout>
@@ -57,12 +67,11 @@
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
-        style="@style/BottomNavigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-
+        android:background="@color/s_tab"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

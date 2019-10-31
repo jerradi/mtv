@@ -37,9 +37,6 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity
-            android:name="com.jamaal.exoplayer2example.BottomTabbedActivity"
-            android:label="@string/title_activity_bottom_tabbed"></activity>
     </application>
 
 </manifest>

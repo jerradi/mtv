@@ -73,7 +73,9 @@ public class ChannelsAdapter extends RecyclerView .Adapter<ChannelsAdapter.MyVie
         final Channel channel = channelsList.get(position);
         holder.tvTitle.setText(channel.getName());
         holder.tvLanguage.setText(channel.getLanguage());
-        Picasso.get().load(channel.getImg()).into(holder.ivLogo);
+        try {
+            Picasso.get().load(channel.getImg()).into(holder.ivLogo);
+        }catch(Exception e){}
         holder.tvTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +84,7 @@ public class ChannelsAdapter extends RecyclerView .Adapter<ChannelsAdapter.MyVie
                 ctx.startActivity(i);
             }
         });
-        if(channel.getCategory() ==0)  holder.ivLogo.setAlpha(0.1f);
+        if(Math.random()>.5f)  holder.ivLogo.setAlpha(0.1f);
     }
 
     @Override
