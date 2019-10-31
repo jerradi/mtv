@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -100,8 +101,13 @@ public class ChannelsAdapter extends RecyclerView .Adapter<ChannelsAdapter.MyVie
 
                 // search content in friend list
                 for (Channel user : filteredList) {
-                    if (user.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
-                        tempList.add(user);
+                    try {
+                        if (user.getName()!=null && user.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                            tempList.add(user);
+
+                        }
+                    }catch (Exception e) {
+                        Log.i("FILTER", "performFiltering: " + e.getLocalizedMessage());
                     }
                 }
 
