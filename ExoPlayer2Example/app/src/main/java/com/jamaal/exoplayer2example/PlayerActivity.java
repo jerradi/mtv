@@ -56,7 +56,7 @@ Keep in mind that m3u8 files might be stale and you would need new sources.
 public class PlayerActivity extends AppCompatActivity implements VideoRendererEventListener {
 
 
-    private static final String TAG = "PlayerActivity";
+    private static final String TAG = "PlayerActivity:Listener";
     private PlayerView simpleExoPlayerView;
     private SimpleExoPlayer player;
     private TextView resolutionTextView;
@@ -144,37 +144,37 @@ public class PlayerActivity extends AppCompatActivity implements VideoRendererEv
 
             @Override
             public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
-
+                Log.i(TAG, "Listener-onTimelineChanged... ");
             }
 
             @Override
             public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
-                Log.v(TAG, "Listener-onTracksChanged... ");
+                Log.i(TAG, "Listener-onTracksChanged... ");
             }
 
             @Override
             public void onLoadingChanged(boolean isLoading) {
-
+                Log.i(TAG, "Listener-onLoadingChanged... ");
             }
 
             @Override
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-                Log.v(TAG, "Listener-onPlayerStateChanged..." + playbackState + "|||isDrawingCacheEnabled():" + simpleExoPlayerView.isDrawingCacheEnabled());
+                Log.i(TAG, "Listener-onPlayerStateChanged..." + playbackState + "|||isDrawingCacheEnabled():" + simpleExoPlayerView.isDrawingCacheEnabled());
             }
 
             @Override
             public void onRepeatModeChanged(int repeatMode) {
-
+                Log.i(TAG, "Listener-onRepeatModeChanged... ");
             }
 
             @Override
             public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
-
+                Log.i(TAG, "Listener-onShuffleModeEnabledChanged... ");
             }
 
             @Override
             public void onPlayerError(ExoPlaybackException error) {
-                Log.v(TAG, "Listener-onPlayerError...");
+                Log.e(TAG, "Listener-onPlayerError...");
                 player.stop();
                 player.prepare(loopingSource);
                 player.setPlayWhenReady(true);

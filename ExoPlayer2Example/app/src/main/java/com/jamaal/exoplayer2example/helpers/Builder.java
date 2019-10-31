@@ -8,7 +8,7 @@ public class Builder {
   public static NetworkHelper getNetworkHelper(){
       if (networkHelper==null) {
           Retrofit retrofit = new Retrofit.Builder()
-                  .baseUrl("http://192.168.1.9:8885/")
+                  .baseUrl("http://192.168.174.1:8108/")
                   .addConverterFactory(GsonConverterFactory.create())
                   .build();
 

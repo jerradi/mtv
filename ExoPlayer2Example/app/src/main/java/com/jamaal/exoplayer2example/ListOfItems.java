@@ -142,6 +142,7 @@ public class ListOfItems extends AppCompatActivity implements
         return super.onCreateOptionsMenu(menu);
     }
 
+
     @Override
     public boolean onQueryTextSubmit(String query) {
         Log.i("TextSubmit filter by ", "" + query);
