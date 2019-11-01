@@ -91,7 +91,7 @@ public class ChannelsAdapter extends RecyclerView .Adapter<ChannelsAdapter.MyVie
 
     @Override
     public int getItemCount() {
-        return channelsList.size();
+        return channelsList.size()+0;
     }
 
     private class ChannelFilter extends Filter {
