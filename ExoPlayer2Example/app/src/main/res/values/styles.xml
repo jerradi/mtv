@@ -28,4 +28,11 @@
     <style name="ExoMediaButton.Next">
         <item name="android:visibility">gone</item>
     </style>
+
+    <style name="TNoActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/s_text</item>
+        <item name="android:background">@color/s_tab</item>
+
+
+    </style>
 </resources>

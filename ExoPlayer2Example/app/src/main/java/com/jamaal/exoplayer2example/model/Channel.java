@@ -1,6 +1,13 @@
 package com.jamaal.exoplayer2example.model;
 
-public class Channel {
+
+import java.io.Serializable;
+
+import lombok.Data;
+
+@Data
+
+public class Channel implements Serializable {
 
     private   int notworking =0 ;
 
@@ -9,8 +16,8 @@ public class Channel {
     private   String img;
     private   String language;
     private   String name;
-
-    private   int category;
+private Channel backup;
+    private   int category=0;
     private   long dbid;
     public Channel(String name, String language, String image, String uri) {
         this.name = name;
@@ -20,59 +27,10 @@ public class Channel {
         language="AR";
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public String getUri() {
-        return uri;
-    }
-
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-
-    public int getNotworking() {
-        return notworking;
-    }
-
-    public void setNotworking(int notworking) {
-        this.notworking = notworking;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    public int getCategory() {
-        return category;
-    }
-
-    public void setCategory(int category) {
-        this.category = category;
-    }
-
-    public long getDbid() {
-        return dbid;
-    }
-
-    public void setDbid(long dbid) {
-        this.dbid = dbid;
+    public static Channel mock() {
+        double x =Math.random();
+        return new Channel("MockedTv" , "ar" , x>.5f ?"https://video.toggle.sg/image/10362468/16x9/947/533/57b91571f7a6ad4068e0ecb738abc0aa/xu/bein-sports-max-2.png":"https://assets-9gag-fun.9cache.com/s/fab0aa49/326129b4882f507e7df4146af98363076b70423c/static/dist/web6/img/sprite-logo.png" , x>.5f?"http://restream.geniptv.com:8080/live:sageevshantha/vf6nMKIQwq/995" : "https://www.youtube.com/watch?v=xbxDuKqV61Y")
+                ;
     }
 }

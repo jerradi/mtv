@@ -23,7 +23,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription=""
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/back"
+
+
+        android:tint="#88506994"
+        android:tintMode="add"/>
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -51,14 +55,16 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/s_tab"
                 android:minHeight="?attr/actionBarSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-                app:titleTextColor="@color/s_subtext"/>
+                app:theme="@style/TNoActionBar"
+
+
+
+               />
 
         </android.support.design.widget.AppBarLayout>
     </android.support.design.widget.CoordinatorLayout>

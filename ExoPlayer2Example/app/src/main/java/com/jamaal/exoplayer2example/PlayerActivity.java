@@ -34,6 +34,7 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
+import com.jamaal.exoplayer2example.model.Channel;
 
 import at.huber.youtubeExtractor.VideoMeta;
 import at.huber.youtubeExtractor.YouTubeExtractor;
@@ -61,7 +62,7 @@ public class PlayerActivity extends AppCompatActivity implements VideoRendererEv
     private SimpleExoPlayer player;
     private TextView resolutionTextView;
     private DataSource.Factory dataSourceFactory = null;
-
+private Channel channel ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,9 +71,8 @@ public class PlayerActivity extends AppCompatActivity implements VideoRendererEv
 
 
         resolutionTextView = new TextView(this);
-        resolutionTextView = (TextView) findViewById(R.id.resolution_textView);
-
-        String mp4VideoUri = getIntent().getStringExtra("url");
+        channel =  (Channel)getIntent().getSerializableExtra("channel");
+        String mp4VideoUri = channel.getUri();
 
         if(isYtbLink(mp4VideoUri)){
             @SuppressLint("StaticFieldLeak") YouTubeExtractor mExtractor = new YouTubeExtractor(this) {
@@ -113,7 +113,7 @@ public class PlayerActivity extends AppCompatActivity implements VideoRendererEv
     }
       LoopingMediaSource loopingSource = null;
     private void playVideo(String mp4VideoUri) {
-        Uri mp4Uri = Uri.parse(getIntent().getStringExtra("url")); //CNBC
+        Uri mp4Uri = Uri.parse(mp4VideoUri); //CNBC
         DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter(); //test
 
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);

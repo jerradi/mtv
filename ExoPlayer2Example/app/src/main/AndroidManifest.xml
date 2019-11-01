@@ -27,6 +27,7 @@
             android:screenOrientation="landscape"
             android:theme="@style/FullScreen"></activity>
         <activity
+            android:label="LiveIN"
             android:name="com.jamaal.exoplayer2example.ListOfItems"
             android:configChanges="orientation"
             android:launchMode="singleTask"

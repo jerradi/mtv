@@ -26,6 +26,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ListOfItems extends AppCompatActivity implements
@@ -44,6 +45,8 @@ public class ListOfItems extends AppCompatActivity implements
                 case R.id.navigation_dashboard:
                     return true;
                 case R.id.navigation_notifications:
+                    return true;
+                case R.id.navigation_settings:
                     return true;
             }
             return false;
@@ -80,8 +83,9 @@ public class ListOfItems extends AppCompatActivity implements
                     return Builder.getNetworkHelper().getAll().execute().body();
                 } catch (Exception e) {
                     e.printStackTrace();
+                  return   Arrays.asList(Channel.mock() ,  Channel.mock() ,Channel.mock() ,Channel.mock());
                 }
-                return  new ArrayList<>();
+
             }
 
             @Override

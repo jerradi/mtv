@@ -7,7 +7,6 @@
      <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-android:background="@drawable/shadow_item"
         android:clickable="true"
          android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
@@ -18,8 +17,8 @@ android:background="@drawable/shadow_item"
             android:id="@+id/ivLogo"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@mipmap/ic_launcher" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/tv24" />
          <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
@@ -39,8 +38,12 @@ android:background="@drawable/shadow_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:background="@color/colorAccentLite"
+              android:layout_alignParentTop="true"
+
+              android:background="@drawable/circle"
+              android:padding="2dp"
             android:text="AR"
-            android:textColor="@color/colorAccent" />
+
+            android:textColor="@color/s_text" />
       </RelativeLayout>
 </RelativeLayout>
