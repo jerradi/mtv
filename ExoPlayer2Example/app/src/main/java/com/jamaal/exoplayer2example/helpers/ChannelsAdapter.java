@@ -73,7 +73,8 @@ public class ChannelsAdapter extends RecyclerView .Adapter<ChannelsAdapter.MyVie
 
         final Channel channel = channelsList.get(position);
         holder.tvTitle.setText(channel.getName());
-        holder.tvLanguage.setText(channel.getLanguage());
+      if(channel.getLanguage()!=null && channel.getLanguage().length()>0) { holder.tvLanguage.setVisibility(View.VISIBLE); holder.tvLanguage.setText(channel.getLanguage());}
+      else { holder.tvLanguage.setVisibility(View.INVISIBLE); }
         try {
             Picasso.get().load(channel.getImg()).into(holder.ivLogo);
         }catch(Exception e){}
@@ -81,11 +82,11 @@ public class ChannelsAdapter extends RecyclerView .Adapter<ChannelsAdapter.MyVie
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ctx, PlayerActivity.class);
-                i.putExtra("url", channel.getUri());
+                i.putExtra("channel", channel );
                 ctx.startActivity(i);
             }
         });
-        if(Math.random()>.5f)  holder.ivLogo.setAlpha(0.1f);
+        if(channel.getCategory()<0)  holder.ivLogo.setAlpha(0.1f);
     }
 
     @Override
@@ -112,7 +113,6 @@ public class ChannelsAdapter extends RecyclerView .Adapter<ChannelsAdapter.MyVie
                         Log.i("FILTER", "performFiltering: " + e.getLocalizedMessage());
                     }
                 }
-
                 filterResults.count = tempList.size();
                 filterResults.values = tempList;
             } else {
