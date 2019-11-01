@@ -76,8 +76,12 @@ public class ChannelsAdapter extends RecyclerView .Adapter<ChannelsAdapter.MyVie
       if(channel.getLanguage()!=null && channel.getLanguage().length()>0) { holder.tvLanguage.setVisibility(View.VISIBLE); holder.tvLanguage.setText(channel.getLanguage());}
       else { holder.tvLanguage.setVisibility(View.INVISIBLE); }
         try {
+            holder.ivLogo.setImageResource(R.drawable.ic_live_tv_black_24dp);
             Picasso.get().load(channel.getImg()).into(holder.ivLogo);
-        }catch(Exception e){}
+        }catch(Exception e){
+            e.printStackTrace();
+            Picasso.get(). load(R.drawable.ic_live_tv_black_24dp).into(holder.ivLogo);
+        }
         holder.tvTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +90,7 @@ public class ChannelsAdapter extends RecyclerView .Adapter<ChannelsAdapter.MyVie
                 ctx.startActivity(i);
             }
         });
-        if(channel.getCategory()<0)  holder.ivLogo.setAlpha(0.1f);
+        if(channel.getCategory()<0)  holder.ivLogo.setAlpha(0.5f);
     }
 
     @Override

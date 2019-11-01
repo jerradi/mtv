@@ -3,7 +3,7 @@
     <color name="colorPrimary">#789CC9</color>
     <color name="colorPrimaryLite">#A7BCD0</color>
     <color name="colorPrimaryDark">#333B54</color>
-    <color name="colorAccent">#A4542E</color>
+    <color name="colorAccent">#99A4542E</color>
     <color name="colorAccentGrey">#333B54</color>
     <color name="itemBackground">#0A0C16</color>
     <color name="colorAccentLite">#79C0A9</color>
@@ -34,8 +34,8 @@
       
     
             <color name="s_text">#E4EFF8</color>
-      
-    
+
+    <color name="s_borders">#55506994</color>
             <color name="s_lightGreen">#6579C0A9</color>
       
 

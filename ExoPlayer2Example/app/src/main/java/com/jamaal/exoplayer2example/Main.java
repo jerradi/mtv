@@ -53,7 +53,7 @@ smallProgressBar.setProgress(0);
 
               Intent i = new Intent(Main.this, ListOfItems.class);
                 startActivity(i);
-
+Main.this.finish();
 //                Intent intent = new Intent(getApplicationContext(),  VideoVLCActivity.class);
 //                intent.putExtra("videoUrl", "rtmp://178.22.187.253:1935/streaming-tv/mp4:myStream3");
 //                startActivity(intent);
