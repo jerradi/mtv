@@ -21,10 +21,15 @@ import android.view.MenuItem;
 import com.jamaal.exoplayer2example.helpers.Builder;
 import com.jamaal.exoplayer2example.helpers.ChannelsAdapter;
 import com.jamaal.exoplayer2example.model.Channel;
+import com.jamaal.exoplayer2example.model.ChannelDao;
+import com.jamaal.exoplayer2example.model.DaoSession;
+
+import org.greenrobot.greendao.query.Query;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -53,12 +58,14 @@ public class ListOfItems extends AppCompatActivity implements
         }
     };
     private List<Channel> channelList;
+    private ChannelDao channelDao;
+    private Query<Channel> channelsQuery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_of_items);
-        recyclerView = (RecyclerView) findViewById(R.id.rvChannels);
+        recyclerView = findViewById(R.id.rvChannels);
           channelList = new ArrayList<>();
         mAdapter = new ChannelsAdapter(channelList, this);
 
@@ -71,6 +78,12 @@ public class ListOfItems extends AppCompatActivity implements
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        DaoSession daoSession = ((App) getApplication()).getDaoSession();
+         channelDao = daoSession.getChannelDao ();
+
+        // query all notes, sorted a-z by their text
+        channelsQuery = channelDao.queryBuilder().orderAsc(ChannelDao.Properties.Id).build();
     }
 
     private void prepareChannelData( ) {
@@ -80,8 +93,12 @@ public class ListOfItems extends AppCompatActivity implements
             protected List<Channel> doInBackground(Void... voids) {
                 try {
 
-                    return Builder.getNetworkHelper().getAll().execute().body();
-                } catch (Exception e) {
+                    List<Channel> channelList =    Builder.getNetworkHelper().getAll().execute().body();
+                    channelDao.  saveInTx(channelList);
+                    return  channelsQuery.forCurrentThread().list();
+                } catch (ConnectException e)  {
+                    return  channelsQuery.forCurrentThread().list();
+                } catch (Exception e)  {
                     e.printStackTrace();
                   return   Arrays.asList(Channel.mock() ,  Channel.mock() ,Channel.mock() ,Channel.mock());
                 }
