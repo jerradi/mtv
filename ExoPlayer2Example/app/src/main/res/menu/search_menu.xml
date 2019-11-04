@@ -5,4 +5,8 @@
         android:icon="@android:drawable/ic_menu_search"
         appcompat:showAsAction="ifRoom|collapseActionView"
         appcompat:actionViewClass="android.support.v7.widget.SearchView" />
+    <item
+        android:id="@+id/menu_refresh"
+        android:title="@string/menu_refresh"
+        appcompat:showAsAction="never"/>
 </menu>

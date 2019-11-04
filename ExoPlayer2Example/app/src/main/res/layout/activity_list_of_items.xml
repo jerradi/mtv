@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
-
-
 
 
     <ImageView
@@ -24,51 +18,66 @@
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription=""
         app:srcCompat="@drawable/back"
-
-
         android:tint="#88506994"
         android:tintMode="add"/>
 
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvChannels"
+
+
+        <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="top|center"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="100dp"
-            android:gravity="top|center"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:scrollbars="vertical"
-            tools:context=".ListOfItems" />
-
-        <android.support.design.widget.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="?attr/actionBarSize"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:theme="@style/TNoActionBar"
+                android:layout_gravity="top|center"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_weight="1">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvChannels"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:divider="@android:color/transparent"
+                android:dividerHeight="100dp"
+                android:gravity="top|center"
+                android:scrollbars="vertical"
+
+                tools:context=".ListOfItems" />
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="?attr/actionBarSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_scrollFlags="scroll|enterAlways|snap"
+                    app:theme="@style/TNoActionBar"
 
-               />
 
-        </android.support.design.widget.AppBarLayout>
-    </android.support.design.widget.CoordinatorLayout>
+                    />
 
+            </android.support.design.widget.AppBarLayout>
+
+
+        </android.support.design.widget.CoordinatorLayout>
 
 
     <android.support.design.widget.BottomNavigationView
@@ -81,6 +90,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+
+        app:itemIconTint="@drawable/tabcolors"
+        app:itemTextColor="@drawable/tabcolors"
+
         app:menu="@menu/navigation" />
 </android.support.constraint.ConstraintLayout>
 

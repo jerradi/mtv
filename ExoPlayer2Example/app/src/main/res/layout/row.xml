@@ -9,16 +9,16 @@
         android:layout_height="wrap_content"
         android:clickable="true"
          android:focusable="true"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@drawable/row_back"
         android:orientation="vertical"
-        android:padding="3dp"
+
+
          >
          <ImageView
             android:id="@+id/ivLogo"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_live_tv_black_24dp" />
+            android:scaleType="fitCenter"  />
          <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
