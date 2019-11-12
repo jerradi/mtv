@@ -35,6 +35,9 @@ public class Channel implements Serializable {
     }
 
 
+
+
+
     @Generated(hash = 444641327)
     public Channel(Long id, Integer notworking, String uri, String img, String language, String name, Integer category, Long dbid) {
         this.id = id;
@@ -48,9 +51,15 @@ public class Channel implements Serializable {
     }
 
 
+
+
+
     @Generated(hash = 459652974)
     public Channel() {
     }
+
+
+
 
 
     public static Channel mock() {

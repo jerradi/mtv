@@ -10,10 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jamaal.exoplayer2example.App;
 import com.jamaal.exoplayer2example.PlayerActivity;
+import com.jamaal.exoplayer2example.model.ChannelDao;
+import com.jamaal.exoplayer2example.model.DaoSession;
 import com.squareup.picasso.Picasso;
 import com.jamaal.exoplayer2example.ListOfItems;
 import com.jamaal.exoplayer2example.R;
@@ -44,12 +48,15 @@ public class ChannelsAdapter extends RecyclerView .Adapter<ChannelsAdapter.MyVie
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView tvTitle, tvLanguage;
         ImageView ivLogo;
+        ImageButton bLike;
+        Channel item;
 
         public MyViewHolder(View view) {
             super(view);
             tvTitle = (TextView) view.findViewById(R.id.tvTitle);
             tvLanguage = (TextView) view.findViewById(R.id.tvLanguage);
             ivLogo = (ImageView) view.findViewById(R.id.ivLogo);
+            bLike = (ImageButton) view.findViewById(R.id.ibLike);
         }
     }
 
@@ -69,25 +76,48 @@ public class ChannelsAdapter extends RecyclerView .Adapter<ChannelsAdapter.MyVie
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
 
         final Channel channel = channelsList.get(position);
         holder.tvTitle.setText(channel.getName());
       if(channel.getLanguage()!=null && channel.getLanguage().length()>0) { holder.tvLanguage.setVisibility(View.VISIBLE); holder.tvLanguage.setText(channel.getLanguage());}
       else { holder.tvLanguage.setVisibility(View.INVISIBLE); }
         try {
-            holder.ivLogo.setImageResource(R.drawable.ic_live_tv_black_24dp);
-            Picasso.get().load(channel.getImg()).into(holder.ivLogo);
+            Picasso.get().load(R.drawable.video8027) .into(holder.ivLogo);
         }catch(Exception e){
             e.printStackTrace();
-            Picasso.get(). load(R.drawable.ic_live_tv_black_24dp).into(holder.ivLogo);
+            Picasso.get(). load(R.drawable.ic_download).into(holder.ivLogo);
         }
+        if(channel.getCategory()==2){
+            Picasso.get().load(R.mipmap.ic_star) .into(holder.bLike);
+        }else {
+            Picasso.get().load(R.mipmap.ic_star_disabled) .into(holder.bLike);
+        }
+
+        holder.bLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(channel.getCategory()==2){
+                    channel.setCategory(1);
+                    Picasso.get().load(R.mipmap.ic_star_disabled) .into(holder.bLike);
+                }else {
+                    channel.setCategory(2);
+                    Picasso.get().load(R.mipmap.ic_star) .into(holder.bLike);
+                }
+                    DaoSession daoSession = ((App) ctx.getApplicationContext()).getDaoSession();
+                    ChannelDao channelDao = daoSession.getChannelDao();
+                channelDao.update(channel);
+
+            }
+            }
+       );
         holder.tvTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ctx, PlayerActivity.class);
+                 Intent i = new Intent(ctx, PlayerActivity.class);
                 i.putExtra("channel", channel );
                 ctx.startActivity(i);
+
             }
         });
         if(channel.getCategory()<0)  holder.ivLogo.setAlpha(0.5f);

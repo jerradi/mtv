@@ -13,6 +13,7 @@ android {
         versionCode 1
         versionName "1.1"
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled = true
     }
     buildTypes {
         release {
@@ -20,7 +21,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+   
 }
+
 
 greendao {
     schemaVersion 1000

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"   xmlns:appcompat="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_refresh"
+        android:title="@string/menu_refresh"
+        appcompat:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_clearAll"
+        android:title="@string/menu_clearAll"
+        appcompat:showAsAction="never"/>
+</menu>

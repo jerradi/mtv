@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:padding="1dp">
-     <RelativeLayout
+    android:padding="1dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
          android:focusable="true"
         android:background="@drawable/row_back"
         android:orientation="vertical"
-
-
          >
-         <ImageView
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#fff" />
+
+    <ImageView
             android:id="@+id/ivLogo"
             android:layout_width="match_parent"
             android:layout_height="120dp"
@@ -23,13 +26,12 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:background="@drawable/gradient_black_tans"
             android:gravity="bottom|center"
             android:text="Bein max 3"
             android:textColor="@color/s_text"
+             android:background="@drawable/gradient_black_tans"
             android:textSize="16dp"
              android:shadowColor="@color/black"
-
              android:shadowDx="1"
              android:shadowDy="1"
             android:textStyle="bold" />
@@ -39,18 +41,31 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
               android:layout_alignParentTop="true"
-android:textSize="32sp"
+              android:textSize="32sp"
               android:gravity="top|right"
               android:background="@drawable/circle"
-
               android:paddingTop="0dp"
               android:paddingRight="1dp"
               android:paddingBottom="0dp"
               android:paddingLeft="10dp"
-
-
             android:text="AR"
-
             android:textColor="@color/s_text" />
-      </RelativeLayout>
+
+
+    <ImageButton
+        android:id="@+id/ibLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvTitle"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="3dp"
+        android:layout_marginBottom="2dp"
+        android:background="#00ffffff"
+        android:gravity="top|right"
+        android:paddingLeft="10dp"
+        android:alpha=".8"
+        android:paddingTop="0dp"
+        android:paddingRight="1dp"
+        android:paddingBottom="0dp"
+        android:src="@mipmap/ic_star_disabled" />
 </RelativeLayout>
