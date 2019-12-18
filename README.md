@@ -1,14 +1,11 @@
-# AndroidApps
-Created by: Ayal Fieldust
-Date: 10/2016
-Last Updated at: 11/2018
+# M3U player
+Example of using ExoPlayer 2, with m3u playlists an TS live stream,
 
-ExoPlayer V: 2.8.4
+The project is in its first stages:
+POC goals:
+	-Channel status, and quality before entring
+	-Optimized Buffering
+	-Backup streams for channels, based on the naming
+	--->(Advanced) Content topic, Language extraction
 
-ExoPlayer 2 Example Description:
-This Example app was created to show a simple example of ExoPlayer Version 2 with outputting resolution on the UI.
-There is an option to play mp4 files or live stream -  just follow the instructions and tweak the code as needed.
-
-*the provided m3u8 links might have expired. If you run the APK and it dosnt play any content, look for fresh sources on the web.
-
-Good luck.
+ 
